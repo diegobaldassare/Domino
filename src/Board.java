@@ -8,7 +8,7 @@ public class Board {
     private ArrayList<Integer> extremes = new ArrayList<>();
     private ArrayList<Piece> usedPieces = new ArrayList<>();
 
-    public boolean add(Piece p){
+    private boolean addNormally(Piece p){
         if (extremes.isEmpty()) {
             extremes.add(p.getBack());
             extremes.add(p.getFront());
@@ -30,9 +30,10 @@ public class Board {
         return false;
     }
 
-    public boolean addSideways(Piece p){
+    //vendria a ser el addSideways, para no llamar a los dos metodos siempre, primero trata el addSideways y si no puede lo mete normalmente.
+    public boolean add(Piece p){
         if(p.getBack() != p.getFront()){
-           return false;
+           return addNormally(p);
         }
         if(extremes.isEmpty()){
             usedPieces.add(p);

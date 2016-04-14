@@ -19,6 +19,10 @@ public class MainWindow extends JFrame {
         setVisible(true);
     }
 
+    public JFrame getFrame(){
+        return this;
+    }
+
 
     public static void main(String[] args){ new MainWindow(new Game()); }
 }

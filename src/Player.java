@@ -5,8 +5,12 @@ import java.util.ArrayList;
  */
 public class Player {
 
+    private Game game;
     private ArrayList<Piece> pieces = new ArrayList<>();
 
+    public Player(Game game){
+        this.game = game;
+    }
 
     public void receivePieces(Piece p) {
         pieces.add(p);
@@ -22,5 +26,10 @@ public class Player {
                 return true;
         }
         return false;
+    }
+
+    public void play(){
+        //si es el user tiene que preguntar que pieza se quiere y si es la computadora pone una.
+//        game.getBoard().add();
     }
 }

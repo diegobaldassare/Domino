@@ -6,8 +6,9 @@ import java.util.ArrayList;
 public class Game {
 
     private ArrayList<Piece> pieces;
-    private Player user = new Player();
-    private Player computer = new Player();
+    private Board board;
+    private Player user = new Player(this);
+    private Player computer = new Player(this);
 
     public Game() {
         pieces = new ArrayList<>();
@@ -50,5 +51,9 @@ public class Game {
 
     public Player getUser() {
         return user;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 }
