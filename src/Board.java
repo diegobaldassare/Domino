@@ -29,4 +29,25 @@ public class Board {
         }
         return false;
     }
+
+    public boolean addSideways(Piece p){
+        if(p.getBack() != p.getFront()){
+           return false;
+        }
+        if(extremes.isEmpty()){
+            usedPieces.add(p);
+            extremes.add(p.getBack());
+            extremes.add(p.getBack());
+            extremes.add(p.getBack());
+            extremes.add(p.getBack());
+            return true;
+        }
+        if(extremes.contains(p.getBack())){
+            usedPieces.add(p);
+            extremes.add(p.getBack());
+            extremes.add(p.getBack());
+            return true;
+        }
+        return false;
+    }
 }

@@ -7,8 +7,6 @@ public class Player {
 
     private ArrayList<Piece> pieces = new ArrayList<>();
 
-    public Player() {
-    }
 
     public void receivePieces(Piece p) {
         pieces.add(p);

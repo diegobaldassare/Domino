@@ -35,6 +35,14 @@ public class Game {
         }
     }
 
+    public void begin(){
+        if(user.starts()){
+            //user starts
+        } else {
+            //computer starts
+        }
+    }
+
     public Player getComputer() {
         return computer;
     }
