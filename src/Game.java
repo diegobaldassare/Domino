@@ -17,6 +17,7 @@ public class Game {
             }
         }
         giveOut();
+        begin();
     }
 
     public ArrayList<Piece> getPieces() {
