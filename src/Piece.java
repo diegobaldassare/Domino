@@ -18,4 +18,8 @@ public class Piece {
     public int getBack() {
         return back;
     }
+
+    public boolean equals(Piece piece){
+        return (piece.getFront() == front && piece.getBack() == back) || (piece.getFront() == back && piece.getBack() == front);
+    }
 }

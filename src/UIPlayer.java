@@ -1,10 +1,11 @@
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
  * Created by Tomas on 4/14/16.
  */
-public class UIPlayer {
+public class UIPlayer extends JPanel {
     private ArrayList<BufferedImage> pieces;
     private Game game;
 

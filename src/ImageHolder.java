@@ -1,4 +1,7 @@
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -9,14 +12,27 @@ public class ImageHolder {
 
     public ImageHolder() {
         dominoPieces = new HashMap<>();
-        for(int i = 0; i <= 28; i++){
-//            Tenemos que poner una pieza y su imagen en el mapa y despues al metodo le pasas una piece y te devuelve la imagen
-//            dominoPieces.put();
-        }
+        init();
     }
 
     //se le pasa una pieza y devuelve su imagen (para uso UI)
     public static BufferedImage getImage(Piece piece){
         return dominoPieces.get(piece);
+    }
+
+    //mete las imagenes en el mapa
+    public void init(){
+        for(int i = 0; i < 7; i++){
+            for (int j = i; j < 7; j++) {
+                BufferedImage image;
+                try{
+                    image = ImageIO.read(new File("/Users/Tomas/IdeaProjects/Domino/Images/" + j + i + ".jpg"));
+                    dominoPieces.put(new Piece(j, i), image);
+                } catch(IOException e){
+                    System.out.println(e.getMessage());
+                    j--;
+                }
+            }
+        }
     }
 }
