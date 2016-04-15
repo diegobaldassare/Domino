@@ -7,11 +7,12 @@ public class Game {
 
     private ArrayList<Piece> pieces;
     private Board board;
-    private Player user = new Player(this);
-    private Player computer = new Player(this);
+    private Player user = new Player(this, true);
+    private Player computer = new Player(this, false);
 
     public Game() {
         pieces = new ArrayList<>();
+        board = new Board();
         for (int i = 0; i < 7; i++) {
             for (int j = i; j < 7; j++) {
                 pieces.add(new Piece(i, j));

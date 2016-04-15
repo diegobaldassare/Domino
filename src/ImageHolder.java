@@ -8,9 +8,12 @@ import java.util.HashMap;
  * Created by Tomas on 4/14/16.
  */
 public class ImageHolder {
-    private static HashMap<Piece, BufferedImage> dominoPieces;
 
-    public ImageHolder() {
+    private static HashMap<Piece, BufferedImage> dominoPieces;
+    private Game game;
+
+    public ImageHolder(Game game) {
+        this.game = game;
         dominoPieces = new HashMap<>();
         init();
     }

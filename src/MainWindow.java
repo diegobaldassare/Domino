@@ -5,9 +5,11 @@ import javax.swing.*;
  */
 public class MainWindow extends JFrame {
     private Game game;
+    private UIGame uiGame;
 
     public MainWindow(Game game){
         this.game = game;
+//        uiGame = new UIGame(game,);
         init();
     }
 

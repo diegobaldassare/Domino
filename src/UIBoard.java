@@ -6,6 +6,7 @@ import java.util.ArrayList;
  */
 public class UIBoard extends JPanel{
     private Game game;
+    private ImageHolder imageHolder;
 
     public UIBoard(Game game) {
         this.game = game;

@@ -6,10 +6,12 @@ import java.util.ArrayList;
 public class Player {
 
     private Game game;
+    private boolean humanPlayer;
     private ArrayList<Piece> pieces = new ArrayList<>();
 
-    public Player(Game game){
+    public Player(Game game, boolean humanPlayer){
         this.game = game;
+        this.humanPlayer = humanPlayer;
     }
 
     public void receivePieces(Piece p) {
@@ -28,8 +30,20 @@ public class Player {
         return false;
     }
 
-    public void play(){
-        //si es el user tiene que preguntar que pieza se quiere y si es la computadora pone una.
-//        game.getBoard().add();
+    public boolean isItHuman(){
+        return humanPlayer;
+    }
+
+    public void play(Piece piece){
+        if(humanPlayer) {
+            game.getBoard().add(piece);
+            pieces.remove(piece);
+        } else {
+            for(Piece p: pieces){
+                if(game.getBoard().add(p)){
+                    break;
+                }
+            }
+        }
     }
 }
