@@ -9,8 +9,10 @@ public class Game {
     private Board board;
     private Player user = new Player(this, true);
     private Player computer = new Player(this, false);
+    private UIGame uiGame;
 
     public Game() {
+        uiGame = new UIGame(this);
         pieces = new ArrayList<>();
         board = new Board();
         for (int i = 0; i < 7; i++) {
@@ -22,9 +24,6 @@ public class Game {
         begin();
     }
 
-    public ArrayList<Piece> getPieces() {
-        return pieces;
-    }
 
     public void giveOut() {
         int random;
@@ -42,8 +41,16 @@ public class Game {
         if(user.starts()){
             //user starts
         } else {
-            //computer starts
+            computer.play(new Piece(1,1));
         }
+    }
+
+    public void askHuman(){
+        //cuando la computadora juega le pregunta al humano que pieza quiere elegir
+    }
+
+    public void turns(){
+        computer.play(new Piece(1,1));
     }
 
     public Player getComputer() {
@@ -56,5 +63,9 @@ public class Game {
 
     public Board getBoard() {
         return board;
+    }
+
+    public UIGame getUiGame() {
+        return uiGame;
     }
 }

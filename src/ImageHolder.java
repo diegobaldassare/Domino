@@ -14,8 +14,8 @@ public class ImageHolder {
 
     public ImageHolder(Game game) {
         this.game = game;
-        dominoPieces = new HashMap<>();
         init();
+        dominoPieces = new HashMap<>();
     }
 
     //se le pasa una pieza y devuelve su imagen (para uso UI)

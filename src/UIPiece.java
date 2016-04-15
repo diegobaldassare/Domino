@@ -1,4 +1,5 @@
-import java.awt.event.ActionEvent;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -21,8 +22,12 @@ public class UIPiece implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         game.getUser().play(piece);
+        game.getUser().removePiece(piece);
+        game.turns();
     }
 
+
+    //Irrelevant
     @Override
     public void mousePressed(MouseEvent e) {
 

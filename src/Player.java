@@ -30,10 +30,6 @@ public class Player {
         return false;
     }
 
-    public boolean isItHuman(){
-        return humanPlayer;
-    }
-
     public void play(Piece piece){
         if(humanPlayer) {
             game.getBoard().add(piece);
@@ -41,9 +37,14 @@ public class Player {
         } else {
             for(Piece p: pieces){
                 if(game.getBoard().add(p)){
+                    game.askHuman();
                     break;
                 }
             }
         }
+    }
+
+    public void removePiece(Piece piece){
+        pieces.remove(piece);
     }
 }

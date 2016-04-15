@@ -5,13 +5,14 @@ import javax.swing.*;
  */
 public class UIGame extends JFrame{
 
-    private UIPlayer uiPlayer;
-    private UIBoard uiBoard;
     private Game game;
+    private UIBoard uiBoard;
+    private UIPlayer uiPlayer;
 
-    public UIGame(Game game, UIPlayer uiPlayer, UIBoard uiBoard){
-        this.uiBoard = uiBoard;
-        this.uiPlayer = uiPlayer;
+    public UIGame(Game game){
+        this.game = game;
+        uiBoard = new UIBoard(game);
+        uiPlayer = new UIPlayer(game);
     }
 
     public UIPlayer getUiPlayer() {
