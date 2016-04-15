@@ -21,9 +21,9 @@ public class UIPiece implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        game.getUser().play(piece);
-        game.getUser().removePiece(piece);
-        game.turns();
+        if(game.turns()) {
+            game.getUser().play(piece);
+        }
     }
 
 

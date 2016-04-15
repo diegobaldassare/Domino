@@ -9,7 +9,7 @@ public class Player {
     private boolean humanPlayer;
     private ArrayList<Piece> pieces = new ArrayList<>();
 
-    public Player(Game game, boolean humanPlayer){
+    public Player(Game game, boolean humanPlayer) {
         this.game = game;
         this.humanPlayer = humanPlayer;
     }
@@ -22,29 +22,27 @@ public class Player {
         return pieces;
     }
 
-    public boolean starts(){
-        for(Piece p: pieces){
-            if((p.getBack() == p.getFront()) && p.getBack() == 6)
+    public boolean starts() {
+        for (Piece p : pieces) {
+            if ((p.getBack() == p.getFront()) && p.getBack() == 6)
                 return true;
         }
         return false;
     }
 
-    public void play(Piece piece){
-        if(humanPlayer) {
+    public void play(Piece piece) {
+        if (humanPlayer) {
             game.getBoard().add(piece);
             pieces.remove(piece);
         } else {
-            for(Piece p: pieces){
-                if(game.getBoard().add(p)){
-                    game.askHuman();
+            for (Piece p : pieces) {
+                if (game.getBoard().add(p)) {
                     break;
                 }
             }
         }
-    }
-
-    public void removePiece(Piece piece){
-        pieces.remove(piece);
+        if(pieces.isEmpty()){
+            game.endGame(humanPlayer);
+        }
     }
 }

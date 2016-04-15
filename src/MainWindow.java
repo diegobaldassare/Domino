@@ -1,17 +1,19 @@
 import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Tomas on 4/14/16.
  */
 public class MainWindow extends JFrame {
     private Game game;
-    private ArrayList<BufferedImage> images;
+    private Draw all;
+    private ImageHolder imgHldr;
 
     public MainWindow(Game game){
         this.game = game;
+        all = new Draw(game);
+        imgHldr = new ImageHolder(game);
         init();
     }
 
@@ -20,14 +22,31 @@ public class MainWindow extends JFrame {
         setSize(700, 700);
         setResizable(false);
         setLocationRelativeTo(null);
-
+        all.drawing();
+        this.add(all);
         setVisible(true);
     }
 
-    //se necesita para poner las imagenes
-    public void paintComponent(Graphics g){
-        for(Piece p: game.getUser().getPieces()){
-            g.drawImage(ImageHolder.getImage(p), 0, 0, null); //se tiene que cambiar el 0, 0 por la posicion que tiene que ir
+    //se debe llamar cada vez para ver si alguno gano y poner los carteles en pantalla
+    public void win(){
+        if(game.isGameEnded()){
+            final JFrame frame = new JFrame("Game Ended");
+            JPanel panel = new JPanel();
+            JButton button = new JButton();
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    frame.dispose();
+                }
+            });
+            if(game.win()) {
+                JLabel label = new JLabel("YOU WIN!");
+                frame.add(panel.add(label));
+            } else {
+                JLabel label = new JLabel("YOU LOSE!");
+                frame.add(panel.add(label));
+            }
+            panel.add(button);
         }
     }
 

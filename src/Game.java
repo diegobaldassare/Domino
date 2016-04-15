@@ -10,6 +10,9 @@ public class Game {
     private Player user = new Player(this, true);
     private Player computer = new Player(this, false);
     private UIGame uiGame;
+    private boolean turn;
+    private boolean win;
+    private boolean endGame;
 
     public Game() {
         uiGame = new UIGame(this);
@@ -37,25 +40,46 @@ public class Game {
         }
     }
 
+    //empieza el juego
     public void begin(){
         if(user.starts()){
-            //user starts
+            turn = true;
         } else {
-            computer.play(new Piece(1,1));
+            turn = false;
         }
     }
 
-    public void askHuman(){
-        //cuando la computadora juega le pregunta al humano que pieza quiere elegir
+    //termina el juego y da un ganador
+    public void endGame(boolean humanPlayer){
+        if(humanPlayer){
+            win = true;
+        } else {
+            win = false;
+        }
+        endGame = true;
     }
 
-    public void turns(){
-        computer.play(new Piece(1,1));
+    //si el juego termino devuelve quien gano
+    public boolean win(){
+        if(endGame){
+            return win;
+        } else {
+            throw new RuntimeException("Unfinished Game");
+        }
     }
 
-    public Player getComputer() {
-        return computer;
+    //devuelve si el juego termino
+    public boolean isGameEnded(){
+        return endGame;
     }
+
+    //si es true juega el humano, si es false juega la computadora
+    public boolean turns(){
+        boolean result = turn;
+        turn = !turn;
+        return result;
+    }
+
 
     public Player getUser() {
         return user;
