@@ -10,8 +10,8 @@ public class Game {
     private Player user = new Player(this, true);
     private Player computer = new Player(this, false);
     private UIGame uiGame;
-    private boolean turn;
-    private boolean win;
+    private boolean turn; //true: user turn
+    private boolean win; //true: user won
     private boolean endGame;
 
     public Game() {
@@ -44,6 +44,7 @@ public class Game {
     public void begin(){
         if(user.starts()){
             turn = true;
+            //falta algo??
         } else {
             turn = false;
         }

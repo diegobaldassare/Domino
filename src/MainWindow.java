@@ -40,10 +40,10 @@ public class MainWindow extends JFrame {
                 }
             });
             if(game.win()) {
-                JLabel label = new JLabel("YOU WIN!");
+                JLabel label = new JLabel("YOU WON!");
                 frame.add(panel.add(label));
             } else {
-                JLabel label = new JLabel("YOU LOSE!");
+                JLabel label = new JLabel("YOU LOST!");
                 frame.add(panel.add(label));
             }
             panel.add(button);

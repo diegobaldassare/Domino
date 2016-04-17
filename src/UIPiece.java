@@ -19,6 +19,10 @@ public class UIPiece implements MouseListener {
         pieceImage = ImageHolder.getImage(piece);
     }
 
+    public Piece getPiece() {
+        return piece;
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
         if(game.turns()) {

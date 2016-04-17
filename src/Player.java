@@ -30,6 +30,17 @@ public class Player {
         return false;
     }
 
+    /**
+     * Si es humano:
+     * - getHand() le muestra sus uiPieces actualizadas
+     * - alguien le tiene que pasar la piece que elija
+     * - la saca de su mano y la pone en el tablero.
+     *
+     * Si es la computadora:
+     * - pone la primera piece que sea valida (no tiene estrategia!)
+     *
+     * @param piece recive una pieza solo cuando es el turno del humano
+     */
     public void play(Piece piece) {
         if (humanPlayer) {
             game.getBoard().add(piece);
