@@ -25,7 +25,7 @@ public class Draw extends JPanel {
 
     public void drawHand(Graphics g){
         for(Piece p: game.getUser().getPieces()){
-            g.drawImage(ImageHolder.getImage(p), 0, game.getUser().getPieces().indexOf(p), null); //se tiene que cambiar el 0, 0 por la posicion que tiene que ir
+//            g.drawImage(ImageHolder.getImage(p), 0, game.getUser().getPieces().indexOf(p), null); //se tiene que cambiar el 0, 0 por la posicion que tiene que ir
         }
     }
 

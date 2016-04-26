@@ -16,7 +16,7 @@ public class UIPiece implements MouseListener {
     public UIPiece(Piece piece, Game game){
         this.game = game;
         this.piece = piece;
-        pieceImage = ImageHolder.getImage(piece);
+//        pieceImage = ImageHolder.getImage(piece);
     }
 
     public Piece getPiece() {

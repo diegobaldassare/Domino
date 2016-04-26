@@ -7,8 +7,8 @@ public class Game {
 
     private ArrayList<Piece> pieces;
     private Board board;
-    private Player user = new Player(this, true);
-    private Player computer = new Player(this, false);
+    private HumanPlayer user = new HumanPlayer(this);
+    private ComputerPlayer computer = new ComputerPlayer(this);
     private UIGame uiGame;
     private boolean turn; //true: user turn
     private boolean win; //true: user won
@@ -51,8 +51,8 @@ public class Game {
     }
 
     //termina el juego y da un ganador
-    public void endGame(boolean humanPlayer){
-        if(humanPlayer){
+    public void endGame(AbstractPlayer player){
+        if(player instanceof HumanPlayer){
             win = true;
         } else {
             win = false;
@@ -82,7 +82,7 @@ public class Game {
     }
 
 
-    public Player getUser() {
+    public HumanPlayer getUser() {
         return user;
     }
 
